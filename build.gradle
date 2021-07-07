@@ -1,0 +1,39 @@
+buildscript {
+    // ext -> build.gradle에서 사용하는 전역변수 설정 키워드
+    ext {
+        springBootVersion = '2.1.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+// 아래의 4개 플러그인은 항상 추가
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+// spring boot의 의존성을 관리해주는 플러그인
+apply plugin: 'io.spring.dependency-management'
+
+group 'com.citizen.book'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+// 각종 의존성을 어떤 원격 저장소에서 받을지를 정한다.
+repositories {
+    mavenCentral()
+    // 개발자들의 오픈 소스 라이브러리 업로드가 간편한 원격 저장소
+    // jcenter에 업로드하면 mavenCentral에도 자동 업로드된다.
+    jcenter()
+}
+
+dependencies {
+    // 최상위 buildscript에 명시한 version을 따라가기 위해 dependency에서는 버전을 명시하지 않는다.
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    testCompileOnly('org.springframework.boot:spring-boot-starter-test')
+}
+
