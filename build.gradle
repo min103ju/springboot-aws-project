@@ -39,9 +39,13 @@ dependencies {
 
     // test
     testCompileOnly 'org.springframework.boot:spring-boot-starter-test'
+    testCompileOnly 'org.springframework.security:spring-security-test'
 
     // lombok
     implementation 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // database
     implementation 'com.h2database:h2'
 
     // jpa

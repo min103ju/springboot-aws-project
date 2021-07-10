@@ -1,10 +1,14 @@
 package com.citizen.book.springboot;
 
+import com.citizen.book.springboot.config.auth.SecurityConfig;
 import com.citizen.book.springboot.web.HelloController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -22,14 +26,22 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 
 // Web 테스트에 집중할 수 있는 Annotation
-// @Controller, @ControllerAdvice 등의 Bean을 사용가능
+// @Controller, @ControllerAdvice, WebSecurityConfigureAdapter, WebMvcConfigurer 등의 Bean을 사용가능
 // @Service, @Component, @Repository는 사용 불가
-@WebMvcTest(controllers = HelloController.class)
+// @WebMvcTest는 일반적인 @Configuration은 스캔하지 않는다.
+@WebMvcTest(controllers = HelloController.class,
+            // Scan 대상에서 제외
+            excludeFilters = {
+                @ComponentScan.Filter(
+                        type = FilterType.ASSIGNABLE_TYPE,
+                        classes = SecurityConfig.class)
+            })
 public class HelloControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
+    @WithMockUser(roles = "USER")
     @Test
     public void hello가_리턴된다() throws Exception {
         String hello = "hello";
@@ -41,6 +53,7 @@ public class HelloControllerTest {
                 .andExpect(content().string(hello));
     }
 
+    @WithMockUser(roles = "USER")
     @Test
     public void helloDto가_리턴된다() throws Exception {
         String name = "hello";
