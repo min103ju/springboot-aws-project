@@ -33,7 +33,10 @@ repositories {
 
 dependencies {
     // 최상위 buildscript에 명시한 version을 따라가기 위해 dependency에서는 버전을 명시하지 않는다.
-    implementation('org.springframework.boot:spring-boot-starter-web')
-    testCompileOnly('org.springframework.boot:spring-boot-starter-test')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testCompileOnly 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.projectlombok:lombok'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.h2database:h2'
 }
 
