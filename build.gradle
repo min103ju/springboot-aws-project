@@ -55,5 +55,9 @@ dependencies {
     // spring-secutiry-oauth2-client, jose를 기본적으로 관리
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
+    // session 관리
+    // application.yml의 설정 정보도 notion에 기재
+    implementation 'org.springframework.session:spring-session-jdbc'
+
 }
 

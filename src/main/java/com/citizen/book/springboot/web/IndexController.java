@@ -1,5 +1,6 @@
 package com.citizen.book.springboot.web;
 
+import com.citizen.book.springboot.config.auth.LoginUser;
 import com.citizen.book.springboot.config.auth.dto.SessionUser;
 import com.citizen.book.springboot.service.PostsService;
 import com.citizen.book.springboot.web.dto.PostsResponseDto;
@@ -21,10 +22,8 @@ public class IndexController {
     @GetMapping("/")
     // TODO: Notion에 기재 할 것.
     // Model Server Template Engine에서 사용할 수 있는 객체를 저장할 수 있다.
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
-
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
 
         if (user != null) {
             model.addAttribute("userName", user.getName());
