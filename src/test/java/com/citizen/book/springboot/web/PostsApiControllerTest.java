@@ -21,6 +21,8 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+// TODO: Notion에 기재 할 것.
+
 @RunWith(SpringRunner.class)
 // Radom_port로 Test was 실행
 // @WebMvcTest의 경우 JPA 기능이 작동하지 않기 떄문에, @SpringBootTest로 진행

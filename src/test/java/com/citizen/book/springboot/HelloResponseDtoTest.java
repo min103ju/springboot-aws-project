@@ -17,6 +17,7 @@ public class HelloResponseDtoTest {
         HelloResponseDto dto = new HelloResponseDto(name, amount);
 
         // then
+        // TODO: Notion에 기재 할 것.
         // assertJ 역시 JUnit에서 자동으로 라이브러리 등록을 해준다.
         assertThat(dto.getName()).isEqualTo(name);
         assertThat(dto.getAmount()).isEqualTo(amount);

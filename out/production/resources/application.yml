@@ -2,6 +2,8 @@ server:
   port: 8081
 
 spring:
+  profiles:
+    include: oauth
   jpa:
     show-sql: true
     properties:

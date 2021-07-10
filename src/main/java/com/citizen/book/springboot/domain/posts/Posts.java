@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+// TODO: Notion에 기재 할 것.
 // Annotation의 주요 우선순위 대로 Class와 가깝게
 @Getter
 @NoArgsConstructor

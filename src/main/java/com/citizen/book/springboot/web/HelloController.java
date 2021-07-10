@@ -14,6 +14,7 @@ public class HelloController {
     }
 
     @GetMapping("/hello/dto")
+    // TODO: Notion에 기재 할 것.
     // @RequestParam : 외부에서 API로 넘긴 parameter를 가져오는 annotation이다.
     public HelloResponseDto helloDto(@RequestParam("name") String name, @RequestParam("amount") int amount) {
         return new HelloResponseDto(name, amount);

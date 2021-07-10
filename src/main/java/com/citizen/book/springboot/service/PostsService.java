@@ -28,6 +28,8 @@ public class PostsService {
         Posts posts = postsRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
 
+        // TODO: Notion에 기재 할 것.
+
         // PersistContenxt 덕분에 Repository에 접근하지 않아도 update가 된다.
         // JPA의 핵심 내용은 Entity가 영속성 Context에 포함되냐 아니냐
         // JPA의 EntityManager가 활성화된 상태로 Transaction안에서 Database에서 데이터를 가지고 오면 이 데이터는
