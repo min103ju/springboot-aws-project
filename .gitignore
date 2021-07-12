@@ -2,3 +2,6 @@
 .gradle
 .idea
 application-oauth.yml
+/build/reports/*
+/build/test-results/*
+/build/tmp/*
