@@ -3,7 +3,7 @@
 buildscript {
     // ext -> build.gradle에서 사용하는 전역변수 설정 키워드
     ext {
-        springBootVersion = '2.1.7.RELEASE'
+        springBootVersion = '2.1.9.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -13,6 +13,8 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
+
+
 
 // 아래의 4개 플러그인은 항상 추가
 apply plugin: 'java'
@@ -34,6 +36,7 @@ repositories {
 }
 
 dependencies {
+    /*
     // 최상위 buildscript에 명시한 version을 따라가기 위해 dependency에서는 버전을 명시하지 않는다.
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
@@ -62,6 +65,21 @@ dependencies {
     // session 관리
     // application.yml의 설정 정보도 notion에 기재
     implementation 'org.springframework.session:spring-session-jdbc'
+    */
+
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.projectlombok:lombok')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-mustache')
+    compile('com.h2database:h2')
+
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+    compile('org.springframework.session:spring-session-jdbc')
+
+    compile("org.mariadb.jdbc:mariadb-java-client")
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile("org.springframework.security:spring-security-test")
+
 
 }
-

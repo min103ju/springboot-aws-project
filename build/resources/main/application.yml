@@ -14,3 +14,16 @@ spring:
       enabled: true
   session:
     store-type: jdbc
+
+
+# TODO: Notion에 기재 할 것.
+# Test OAuth
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: test
+            client-secret: test
+            scope: profile, email
+

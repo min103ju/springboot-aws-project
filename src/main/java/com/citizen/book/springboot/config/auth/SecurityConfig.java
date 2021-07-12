@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .permitAll()
                         // 권한 관리 대상을 지정하는 옵션
                         // URL, HTTP 메소드별로 관리가 가능
-                        .antMatchers("/api/v1/**").hasRole(Role.USER.name())
+                        .antMatchers("/api/v1/  ` **").hasRole(Role.USER.name())
                         // 설정된 이외 나머지 URL들을 나타낸다.
                         .anyRequest().authenticated()
                 .and()
