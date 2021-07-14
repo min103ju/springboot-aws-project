@@ -8,6 +8,7 @@ REPOSITORY=/home/ec2-user/app/step3
 
 PROJECT_NAME=springboot-aws-project
 
+echo "> 두번째 배포"
 echo "> Build 파일 복사"
 echo "> cp $REPOSITORY/zip/*.jar $REPOSITORY/"
 
