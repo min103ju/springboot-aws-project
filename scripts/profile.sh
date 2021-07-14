@@ -2,6 +2,7 @@
 
 # 쉬고 있는 profile 찾기: real1이 사용중이면 real2를 찾는다.
 
+
 function find_idle_profile()
 {
   RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/profile)
